@@ -1,0 +1,81 @@
+1: Find unique items in the array
+function unique(arr) {
+    var unique = arr.filter((v, i, a) => a.indexOf(v) === i);
+    return unique;
+}
+let values = ["green", "green", "red", "red",
+"yellow", "pink", "pink", "yellow"
+];
+console.log("Unique values are", unique(values));
+
+
+
+2: Write a function which camelizes input word
+
+Example:
+camelize("background-color") should output 'backgroundColor';
+camelize("list-style-image") should output 'listStyleImage';
+camelize("-webkit-transition") should output 'WebkitTransition'
+
+ans :
+camelize = function camelize(str) {
+      return str.replace(/\W+(.)/g, function(match, chr)
+       {
+            return chr.toUpperCase();
+        });
+    }
+
+
+
+
+3: Given the following list of items
+
+[1,33,99,50,100,150,60,99,1000,999,0,-1,10], write a function which returns an array
+that contains all numbers more than or equal to 150
+
+ans :
+var arr=[1,33,99,50,100,150,60,99,1000,999,0,-1,10];
+function greaterThan(arr){
+    var a=arr.filter(arr => arr > 150)
+    return a;
+}
+
+console.log(greaterThan(arr))
+
+
+4: Given the following array of objects called 'users', write a function which creates a new array that contains objects in the following structure:
+
+
+let raksha = { name: "Raksha", surname: "Sharma", age: 28 };
+let srinivas = { name: "Srinivas", surname: "Iyengar", age: 30 };
+let usha = { name: "Usha", surname: "Janardhana", age: 54 };
+
+let users = [ raksha, srinivas, usha ];
+
+
+Sample output:
+
+usersMapped = [
+  { fullName: "Raksha Sharma", id: 1 },
+  { fullName: "Srinivas Iyengar", id: 2 },
+  { fullName: "Usha Janardhana", id: 3 }
+]
+
+ans:
+function mapUsers(arr) {
+return arr.map(function(arr, index) {
+return {fullName: arr.name+arr.surname, id: index+1};
+})
+}
+
+
+
+5: Destructure the following object to extract firstname and the 'second' likes item
+
+const user = { person: { employee: { firstname: "Rahul" }, likes: ["Cycling", "Hiking", "Driving"] } }
+
+ans:
+const firstName = user.person.employee.firstname;
+const secondLikes = user.person.likes[1];
+console.log(firstName);
+console.log(secondLikes);
